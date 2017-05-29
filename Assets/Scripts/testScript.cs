@@ -6,10 +6,13 @@ public class testScript : MonoBehaviour {
 	//I am testing stuff.
 
 	//test 1
+<<<<<<< HEAD
 	//test 2
 	//3
 	//4
 	//5
 	//6
 	//7
+=======
+>>>>>>> parent of b310ba9... test 2 added
 }
