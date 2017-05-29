@@ -12,6 +12,4 @@ public class testScript : MonoBehaviour {
 	//5
 	//6
 	//7
-	//8
-	//9
 }
