@@ -21,8 +21,6 @@ public class ScoreMaster {
 		List<int> frameList = new List<int> ();
 
 		int bowls = 1;
-		int frameCount = 1;
-	
 		bool isFirstBall = true;
 		bool workingOnStrike = false;
 		bool workingOnSpare = false;
@@ -66,12 +64,10 @@ public class ScoreMaster {
 					frameList.Add(20 + rolls[bowls-1]);
 					bowls ++;
 				}
-				frameCount++;
 			}
 			// First ball, working on a spare.
 			else if (isFirstBall && workingOnSpare) {
 				frameList.Add(10 + rolls[bowls-1]);
-				frameCount++;
 				workingOnSpare = false;
 				//If it's a strike
 				if(rolls[bowls-1] == 10){
@@ -89,7 +85,6 @@ public class ScoreMaster {
 				//If it's an open frame.
 				if (rolls[bowls-1] + rolls[bowls-2] < 10){
 					frameList.Add(rolls[bowls-1] + rolls[bowls-2]);
-					frameCount++;
 					isFirstBall = true;
 					bowls++;
 				} else if (rolls[bowls-1] + rolls[bowls-2] == 10){
@@ -102,7 +97,6 @@ public class ScoreMaster {
 			// Second ball, last frame was a strike.
 			else if(!isFirstBall && workingOnStrike){
 				frameList.Add(10 + rolls[bowls-2] + rolls[bowls-1]);
-				frameCount++;
 				workingOnStrike = false;
 				//If the current frame is a spare.
 				if(rolls[bowls-2] + rolls[bowls - 1] == 10){
@@ -111,10 +105,9 @@ public class ScoreMaster {
 					bowls++;
 				} else {
 					isFirstBall = true;
-					if(frameCount <= 10){
+					if((frameList.Count + 1) <= 10){
 						frameList.Add(rolls[bowls-2] + rolls[bowls-1]);
 					}
-					frameCount++;
 					bowls++;
 				}
 			}
