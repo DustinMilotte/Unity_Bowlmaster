@@ -30,7 +30,7 @@ public class ScoreMaster {
 			// First ball, last frame was open.
 			if(isFirstBall && !workingOnSpare && !workingOnStrike){
 				//It's a strike
-				if(rolls[bowls-1] == 10){
+				if(roll == 10){
 					workingOnStrike = true;
 					bowls++;
 				} else {
@@ -42,7 +42,7 @@ public class ScoreMaster {
 			// First ball, last frame was a strike.
 			else if(isFirstBall && workingOnStrike && !workingOnTwoStrikes){
 				//It's a strike
-				if(rolls[bowls-1] == 10){
+				if(roll == 10){
 					workingOnTwoStrikes = true;
 					bowls++;
 				} else {
@@ -54,23 +54,23 @@ public class ScoreMaster {
 			//First ball, working on two strikes
 			else if(isFirstBall && workingOnTwoStrikes){
 				// It's a strike.
-				if(rolls[bowls-1] == 10){
+				if(roll == 10){
 					frameList.Add(30);
 					bowls++;
 				} else {
 					// Its not a strike.
 					isFirstBall = false;
 					workingOnTwoStrikes = false;
-					frameList.Add(20 + rolls[bowls-1]);
+					frameList.Add(20 + roll);
 					bowls ++;
 				}
 			}
 			// First ball, working on a spare.
 			else if (isFirstBall && workingOnSpare) {
-				frameList.Add(10 + rolls[bowls-1]);
+				frameList.Add(10 + roll);
 				workingOnSpare = false;
 				//If it's a strike
-				if(rolls[bowls-1] == 10){
+				if(roll == 10){
 					workingOnStrike = true;
 					bowls++;
 				} else {
@@ -83,11 +83,11 @@ public class ScoreMaster {
 			// Second ball, last frame was open.
 			else if(!isFirstBall && !workingOnStrike && !workingOnSpare){
 				//If it's an open frame.
-				if (rolls[bowls-1] + rolls[bowls-2] < 10){
-					frameList.Add(rolls[bowls-1] + rolls[bowls-2]);
+				if (roll + rolls[bowls-2] < 10){
+					frameList.Add(roll + rolls[bowls-2]);
 					isFirstBall = true;
 					bowls++;
-				} else if (rolls[bowls-1] + rolls[bowls-2] == 10){
+				} else if (roll + rolls[bowls-2] == 10){
 					//If it's a spare.
 					workingOnSpare = true;
 					isFirstBall = true;
@@ -96,17 +96,17 @@ public class ScoreMaster {
 			}
 			// Second ball, last frame was a strike.
 			else if(!isFirstBall && workingOnStrike){
-				frameList.Add(10 + rolls[bowls-2] + rolls[bowls-1]);
+				frameList.Add(10 + rolls[bowls-2] + roll);
 				workingOnStrike = false;
 				//If the current frame is a spare.
-				if(rolls[bowls-2] + rolls[bowls - 1] == 10){
+				if(rolls[bowls-2] + roll == 10){
 					isFirstBall = true;
 					workingOnSpare = true;
 					bowls++;
 				} else {
 					isFirstBall = true;
 					if((frameList.Count + 1) <= 10){
-						frameList.Add(rolls[bowls-2] + rolls[bowls-1]);
+						frameList.Add(rolls[bowls-2] + roll);
 					}
 					bowls++;
 				}

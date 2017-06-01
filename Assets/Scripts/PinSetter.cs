@@ -30,6 +30,7 @@ public class PinSetter : MonoBehaviour {
 	public void RaisePins(){
 		foreach(Pin pin in GameObject.FindObjectsOfType<Pin>()){
 			pin.RaiseIfStanding();
+			Debug.Log("Raising pins");
 		}
 	}
 
@@ -37,6 +38,7 @@ public class PinSetter : MonoBehaviour {
 		foreach(Pin pin in GameObject.FindObjectsOfType<Pin>()){
 			pin.Lower();
 		}
+		Debug.Log("lowering pins");
 	}
 
 	public void RenewPins(){
