@@ -6,7 +6,6 @@ public class ScoreMaster {
 	// Returns a list of cumulative scores, like a normal scorecard.
 	public static List<int> ScoreCumulative (List<int> rolls){
 		List<int> scoreCumulative = new List<int>();
-		int [] temps = new int[10];
 		int runningTotal = 0;
 
 		foreach(int frameScore in ScoreFrames(rolls)){
