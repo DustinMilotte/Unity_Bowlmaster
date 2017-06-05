@@ -17,10 +17,17 @@ public class GameManager : MonoBehaviour {
 	}
 	
 	public void Bowl(int pinFall){
-		bowls.Add(pinFall);
-
-		pinSetter.PerformAction(ActionMaster.NextAction(bowls));
-		scoreDisplay.FillRollCard (bowls );
-		ball.Reset();
+		try{
+			bowls.Add(pinFall);
+			ball.Reset();
+			pinSetter.PerformAction(ActionMaster.NextAction(bowls));
+		} catch {
+			Debug.LogWarning("something went wrong in Bowl()");
+		}
+		try{
+			scoreDisplay.FillRollCard (bowls);
+		} catch {
+			Debug.LogWarning("something went wrong in fillrollcard()");
+		}
 	}
 }
