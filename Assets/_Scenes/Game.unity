@@ -2256,6 +2256,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e554c8dda305c64eab880c39378a2af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rollTexts:
+  - {fileID: 1996480950}
+  - {fileID: 949610364}
+  - {fileID: 1252221198}
+  - {fileID: 1792150894}
+  - {fileID: 726753292}
+  - {fileID: 1135398796}
+  - {fileID: 1950587609}
+  - {fileID: 1269071040}
+  - {fileID: 887187244}
+  - {fileID: 1269947965}
+  - {fileID: 2110808058}
+  - {fileID: 1893044886}
+  - {fileID: 9544511}
+  - {fileID: 1904020341}
+  - {fileID: 1321724764}
+  - {fileID: 1207307871}
+  - {fileID: 76657966}
+  - {fileID: 464063057}
+  - {fileID: 1144742815}
+  - {fileID: 1513267230}
+  - {fileID: 1116731121}
+  frameTexts:
+  - {fileID: 1498474257}
+  - {fileID: 1336368015}
+  - {fileID: 730142666}
+  - {fileID: 237054793}
+  - {fileID: 388808570}
+  - {fileID: 1768569435}
+  - {fileID: 101611787}
+  - {fileID: 350131709}
+  - {fileID: 1423205003}
+  - {fileID: 2032836031}
 --- !u!1 &1239926574
 GameObject:
   m_ObjectHideFlags: 0

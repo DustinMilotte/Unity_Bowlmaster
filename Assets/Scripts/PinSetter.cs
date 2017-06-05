@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PinSetter : MonoBehaviour {
 	public GameObject pinSet;
 
-	ActionMaster actionMaster;
+	ActionMasterOld actionMaster;
 
 	private Animator animator;
 	private PinCounter pinCounter;
@@ -16,13 +16,13 @@ public class PinSetter : MonoBehaviour {
 		pinCounter = GameObject.FindObjectOfType<PinCounter>();
 	}
 
-	public void PerformAction(ActionMaster.Action action){
-		if(action == ActionMaster.Action.Tidy){
+	public void PerformAction(ActionMasterOld.Action action){
+		if(action == ActionMasterOld.Action.Tidy){
 			animator.SetTrigger("tidyTrigger");	 
-		} else if (action == ActionMaster.Action.Reset ||action == ActionMaster.Action.EndTurn){
+		} else if (action == ActionMasterOld.Action.Reset ||action == ActionMasterOld.Action.EndTurn){
 			animator.SetTrigger("resetTrigger");
 			pinCounter.Reset();
-		} else if (action == ActionMaster.Action.EndGame){
+		} else if (action == ActionMasterOld.Action.EndGame){
 			throw new UnityException ("Dont know how to do that.");
 		}
 	}
