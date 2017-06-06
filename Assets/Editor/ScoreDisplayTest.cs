@@ -56,8 +56,8 @@ public class ScoreDisplayTest {
 
 	[Test]
 	public void T07BowlMixedabcd (){
-		int[] rolls = {10,10, 2,8};
-		string rollsString = "X X 2/";
+		int[] rolls = {10,10, 2,8, 10, 3,7};
+		string rollsString = "X X 2/X 3/";
 		Assert.AreEqual (rollsString, ScoreDisplay.FormatRolls (rolls.ToList()));
 	}
 
@@ -65,6 +65,34 @@ public class ScoreDisplayTest {
 	public void T08Bowl9FramesMixed (){
 		int[] rolls = {1,9, 10, 2,3, 5,4, 10, 10, 2,8, 3,7, 10};
 		string rollsString = "1/X 2354X X 2/3/X ";
+		Assert.AreEqual (rollsString, ScoreDisplay.FormatRolls (rolls.ToList()));
+	}
+
+	[Test]
+	public void T09TenthFrameX12 (){
+		int[] rolls = {1,9, 10, 2,3, 5,4, 10, 10, 2,8, 3,7, 10, 10,1,2};
+		string rollsString = "1/X 2354X X 2/3/X X12";
+		Assert.AreEqual (rollsString, ScoreDisplay.FormatRolls (rolls.ToList()));
+	}
+
+	[Test]
+	public void T10TenthFrame283 (){
+		int[] rolls = {1,9, 10, 2,3, 5,4, 10, 10, 2,8, 3,7, 10, 2,8,3};
+		string rollsString = "1/X 2354X X 2/3/X 2/3";
+		Assert.AreEqual (rollsString, ScoreDisplay.FormatRolls (rolls.ToList()));
+	}
+
+	[Test]
+	public void T11TenthFrameGutters (){
+		int[] rolls = {1,9, 10, 2,3, 5,4, 10, 10, 2,8, 3,7, 10, 0,0};
+		string rollsString = "1/X 2354X X 2/3/X 00";
+		Assert.AreEqual (rollsString, ScoreDisplay.FormatRolls (rolls.ToList()));
+	}
+
+	[Test]
+	public void T12PerfectGame (){
+		int[] rolls = {10, 10, 10, 10, 10, 10, 10, 10, 10, 10,10,10};
+		string rollsString = "X X X X X X X X X XXX";
 		Assert.AreEqual (rollsString, ScoreDisplay.FormatRolls (rolls.ToList()));
 	}
 }
