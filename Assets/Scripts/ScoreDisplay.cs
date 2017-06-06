@@ -26,8 +26,22 @@ public class ScoreDisplay : MonoBehaviour {
 
 	public static string FormatRolls(List <int> rolls){
 		string output = "";
-		//Your code here
+		int lastRoll=0;
+
+		foreach (int roll in rolls){
+			//int lastRoll;
+			if (roll == 10 && output.Length % 2 == 0){										//If its a strike
+				output += "X ";
+			} else if(output.Length % 2 != 0 && (roll + lastRoll == 10)){
+				output += '/'; 
+			} else {
+				string currentRoll = roll.ToString();
+				output += currentRoll;
+			}
+			lastRoll= roll;
+		}
+//		Debug.Log(output.Length);
+//		Debug.Log(output);
 		return output;
 	}
-//>>>>>>> 83fa59f1caaf457a6e1d46f06b4bb88b40b697f4
 }
