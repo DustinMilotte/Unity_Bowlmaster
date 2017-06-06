@@ -16,10 +16,10 @@ public class BallDragLaunch : MonoBehaviour {
 
 	public void MoveStart(float amount){
 		if(!ball.inPlay){
-			ball.transform.Translate(new Vector3 (amount, 0f, 0f));
-			Vector3 pos = ball.transform.position;
-			pos.x = Mathf.Clamp(ball.transform.position.x, -50f, 50f);
-			ball.transform.position = pos;
+			float xPos = Mathf.Clamp(ball.transform.position.x + amount, -45f, 45f);
+			float yPos = ball.transform.position.y;
+			float zPos = ball.transform.position.z;
+			ball.transform.position = new Vector3(xPos, yPos, zPos);
 		}
 	}
 

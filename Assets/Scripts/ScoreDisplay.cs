@@ -29,11 +29,14 @@ public class ScoreDisplay : MonoBehaviour {
 		int lastRoll=0;
 
 		foreach(int roll in rolls){
-			if(output.Length >= 18 && roll == 10){							// Special case for last frame.
+			if(roll == 0){
+				output += '-';
+			} else if(output.Length >= 18 && roll == 10){					// Special case for last frame.
 					output += "X";
 			} else if(roll == 10 && output.Length % 2 == 0){				// If it's a strike.
 				output += "X ";
-			} else if(output.Length % 2 != 0 && (roll + lastRoll == 10)){	// If it's a spare.
+			} else if((output.Length % 2 != 0 || output.Length == 20)		// If it's a spare.
+				&& (roll + lastRoll == 10)){								
 				output += '/'; 
 			} else {														// All other bowls.
 				string currentRoll = roll.ToString();

@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 54313078365848548}
   - component: {fileID: 114267193332529858}
   - component: {fileID: 82152901377272256}
+  - component: {fileID: 114768471033514294}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -58,7 +59,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: e57ea3989dc7f4e50bd55982de841177, type: 2}
+  - {fileID: 2100000, guid: 89db87e4d8a384c1da9d8ce75612f3a4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -98,7 +99,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!82 &82152901377272256
 AudioSource:
   m_ObjectHideFlags: 1
@@ -192,6 +193,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   launchVelocity: {x: 0, y: 0, z: 1000}
   inPlay: 0
+--- !u!114 &114768471033514294
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1787449534664342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80f97023b6982b5489716d7fbbb40d12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!135 &135240730126595892
 SphereCollider:
   m_ObjectHideFlags: 1
